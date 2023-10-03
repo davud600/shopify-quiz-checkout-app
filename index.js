@@ -4,8 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 dotenv.config();
-const { STORE_FRONT_API, CORS_ORIGIN, SEAL_APP_TOKEN } = process.env;
-const port = 3000;
+const { STORE_FRONT_API, CORS_ORIGIN, SEAL_APP_TOKEN, PORT } = process.env;
 const app = express();
 app.use(express.json());
 app.use(
@@ -82,6 +81,6 @@ app.get("/api/create-checkout", async (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });
