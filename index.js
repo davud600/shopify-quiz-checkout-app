@@ -134,7 +134,7 @@ app.get("/api/send-email", async (req, res) => {
         .sendMail({
           from: '"Bala Nutrition" <info@balaxk.com>',
           to: email,
-          subject: "Test Email",
+          subject: "Thank you for filling the quiz:",
           // text: "Hello world?",
           html: `<!DOCTYPE html>
           <html lang="en">
