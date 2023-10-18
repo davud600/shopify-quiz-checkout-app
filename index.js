@@ -47,10 +47,26 @@ app.get("/api/create-checkout", async (req, res) => {
             quantity: quantity,
             selling_plan: sellingPlanId,
           },
+          {
+            variant_id: freeShippingGiftId,
+            quantity: 1,
+          },
+          {
+            variant_id: secretGiftId,
+            quantity: 1,
+          },
+          {
+            variant_id: antiInflamatoryGiftId,
+            quantity: 1,
+          },
+          {
+            variant_id: eBookGiftId,
+            quantity: 1,
+          },
         ],
       }),
     })
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => {
         res.send({ data: data.payload.quick_checkout_url });
         return;
