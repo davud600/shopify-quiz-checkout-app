@@ -23,6 +23,10 @@ app.use(
 const shopifyApiUrl = "https://balanutritions.com/api/2023-01/graphql.json";
 const sealApiUrl =
   "https://app.sealsubscriptions.com/shopify/merchant/api/quick-checkout-url";
+const freeShippingGiftId = "47056807231771";
+const secretGiftId = "47056804577563";
+const antiInflamatoryGiftId = "47056802873627";
+const eBookGiftId = "47056796746011";
 
 app.get("/api/create-checkout", async (req, res) => {
   const { quantity, variantId, sellingPlanId } = req.query;
@@ -66,10 +70,28 @@ app.get("/api/create-checkout", async (req, res) => {
       query: `
             mutation {
               checkoutCreate(input: {
-                lineItems: [{
-                  variantId: "gid://shopify/ProductVariant/${variantId}",
-                  quantity: ${quantity}
-                }]
+                lineItems: [
+                  {
+                    variantId: "gid://shopify/ProductVariant/${variantId}",
+                    quantity: ${quantity}
+                  },
+                  {
+                    variantId: "gid://shopify/ProductVariant/${freeShippingGiftId}",
+                    quantity: 1
+                  },
+                  {
+                    variantId: "gid://shopify/ProductVariant/${secretGiftId}",
+                    quantity: 1
+                  },
+                  {
+                    variantId: "gid://shopify/ProductVariant/${antiInflamatoryGiftId}",
+                    quantity: 1
+                  },
+                  {
+                    variantId: "gid://shopify/ProductVariant/${eBookGiftId}",
+                    quantity: 1
+                  }
+                ]
               }) {
                 checkout {
                   webUrl
