@@ -4,7 +4,14 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 dotenv.config();
-const { STORE_FRONT_API, CORS_ORIGIN, SEAL_APP_TOKEN, PORT } = process.env;
+const {
+  STORE_FRONT_API,
+  CORS_ORIGIN,
+  SEAL_APP_TOKEN,
+  PORT,
+  SMTP_USERNAME,
+  SMTP_PASSWORD,
+} = process.env;
 const app = express();
 app.use(express.json());
 app.use(
@@ -79,6 +86,42 @@ app.get("/api/create-checkout", async (req, res) => {
     .catch((error) => {
       console.error("Error:", error);
     });
+});
+
+app.get("/api/send-email", async (req, res) => {
+  const { email } = req.query;
+  const validateEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
+    email
+  );
+
+  if (validateEmail) {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      // ssl - port 465 || tls - port 587
+      port: 465,
+      secure: true,
+      auth: {
+        user: SMTP_USERNAME,
+        pass: SMTP_PASSWORD,
+      },
+    });
+
+    try {
+      await transporter
+        .sendMail({
+          from: '"Bala Nutrition" <info@balaxk.com>',
+          to: email,
+          subject: "Test Email",
+          text: "Hello world?",
+          html: "<b>Hello world?</b>",
+        })
+        .then(res.sendStatus(200));
+    } catch (error) {
+      res.sendStatus(500);
+    }
+  } else {
+    res.sendStatus(400);
+  }
 });
 
 app.listen(PORT, () => {
