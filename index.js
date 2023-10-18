@@ -139,7 +139,7 @@ app.get("/api/send-email", async (req, res) => {
         })
         .then(res.sendStatus(200));
     } catch (error) {
-      res.sendStatus(500);
+      console.error(error);
     }
   } else {
     res.sendStatus(400);
