@@ -546,17 +546,9 @@ app.get("/api/send-email", async (req, res) => {
                                                                                 Discount
                                                                                 Will
                                                                                 Expire
-                                                                                Soon!
-                                                                                <img
-                                                                                  data-emoji="😔"
-                                                                                  class="an1"
-                                                                                  alt="😔"
-                                                                                  aria-label="😔"
-                                                                                  src="https://fonts.gstatic.com/s/e/notoemoji/15.0/1f614/72.png"
-                                                                                  loading="lazy"
-                                                                                />
-                                                                                but You
-                                                                                Can Still
+                                                                                Soon! but
+                                                                                You Can
+                                                                                Still
                                                                                 Secure the
                                                                                 35%
                                                                                 Discount!</span
@@ -652,7 +644,7 @@ app.get("/api/send-email", async (req, res) => {
                                                                                         Helvetica,
                                                                                         sans-serif;
                                                                                       font-size: 16px;
-                                                                                      line-height: 100%;
+                                                                                      line-height: 1.3;
                                                                                       letter-spacing: 0;
                                                                                       margin: 0;
                                                                                       text-transform: none;
@@ -1148,8 +1140,8 @@ app.get("/api/send-email", async (req, res) => {
                                                                                         'Helvetica Neue',
                                                                                         Helvetica,
                                                                                         sans-serif;
-                                                                                      font-size: 16px;
-                                                                                      line-height: 100%;
+                                                                                      font-size: 15px;
+                                                                                      line-height: 1.3;
                                                                                       letter-spacing: 0;
                                                                                       margin: 0;
                                                                                       text-transform: none;
@@ -1927,6 +1919,7 @@ app.get("/api/send-email", async (req, res) => {
                                                                                                                       text-decoration: none;
                                                                                                                       height: auto;
                                                                                                                       font-size: 13px;
+                                                                                                                      margin-top: 80px;
                                                                                                                       width: 100%;
                                                                                                                     "
                                                                                                                     title="Bala Probiotics"
@@ -2042,8 +2035,8 @@ app.get("/api/send-email", async (req, res) => {
                                                                                         'Helvetica Neue',
                                                                                         Helvetica,
                                                                                         sans-serif;
-                                                                                      font-size: 16px;
-                                                                                      line-height: 100%;
+                                                                                      font-size: 15px;
+                                                                                      line-height: 1.3;
                                                                                       letter-spacing: 0;
                                                                                       margin: 0;
                                                                                       text-transform: none;
@@ -2534,7 +2527,8 @@ app.get("/api/send-email", async (req, res) => {
                                                                               "
                                                                             >
                                                                               <strong
-                                                                                >Bala</strong
+                                                                                >Bala
+                                                                                Nutritions</strong
                                                                               >
                                                                             </p>
                                                                             <p
@@ -2584,17 +2578,9 @@ app.get("/api/send-email", async (req, res) => {
                                                                                   valid
                                                                                   for the
                                                                                   receiver
-                                                                                  <a
-                                                                                    href="mailto:"
-                                                                                    target="_blank"
-                                                                                    >{{
-                                                                                    email
-                                                                                    }}</a
-                                                                                  ></span
-                                                                                ></span
+                                                                                </span></span
                                                                               >
                                                                             </p>
-                                                            
                                                                           </div>
                                                                         </td>
                                                                       </tr>
